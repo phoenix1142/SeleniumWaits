@@ -1,6 +1,7 @@
-package com.demoOpensource;
+package com.demoopensource;
 
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -68,7 +69,8 @@ public class TestClass {
          */
         wait.until(ExpectedConditions.textToBe(By.xpath(MESSAGE_XPATH), "Invalid credentials"));
         String invalCredent = driver.findElement(By.xpath(MESSAGE_XPATH)).getAttribute("textContent");
-        invalCredent.equals("Invalid credentials");
+        Assert.assertEquals("Correct",invalCredent,"Invalid credentials");
+
 
         /*
         check message "Username cannot be empty"
@@ -76,7 +78,8 @@ public class TestClass {
         driver.findElement(By.xpath(LOGIN_XPATH)).click();
         wait.until(ExpectedConditions.textToBe(By.xpath(MESSAGE_XPATH), "Username cannot be empty"));
         String userCantBeEmpty = driver.findElement(By.xpath(MESSAGE_XPATH)).getAttribute("textContent");
-        userCantBeEmpty.equals("Username cannot be empty");
+        Assert.assertEquals("Correct",userCantBeEmpty,"Username cannot be empty");
+
 
         /*
         check message "Password cannot be empty"
@@ -85,7 +88,8 @@ public class TestClass {
         driver.findElement(By.xpath(LOGIN_XPATH)).click();
         wait.until(ExpectedConditions.textToBe(By.xpath(MESSAGE_XPATH), "Password cannot be empty"));
         String pswdCantBeEmpty = driver.findElement(By.xpath(MESSAGE_XPATH)).getAttribute("textContent");
-        pswdCantBeEmpty.equals("Password cannot be empty");
+        Assert.assertEquals("Correct",pswdCantBeEmpty,"Password cannot be empty");
+
 
         /*
         Close frame
